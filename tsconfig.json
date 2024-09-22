@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ESNext", // Babel will handle transpiling down to the target level
+    "module": "ESNext", // Keep modules as ESNext for Babel to process
+    "declaration": true, // Generate type declarations
+    "declarationDir": "./dist/types",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
+}

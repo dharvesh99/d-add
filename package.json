@@ -1,0 +1,38 @@
+{
+  "name": "@dharvesh99/d-utils",
+  "version": "1.0.0",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js",
+      "types": "./dist/types/index.d.ts"
+    }
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "build:cjs": "BABEL_ENV=cjs babel src --presets=./scripts/babel.config.js --extensions .ts,.tsx --out-dir dist/cjs --copy-files --source-maps",
+    "build:esm": "BABEL_ENV=esm babel src --presets=./scripts/babel.config.js --extensions .ts,.tsx --out-dir dist/esm --copy-files --source-maps",
+    "build:types": "tsc --emitDeclarationOnly",
+    "build": "npm run clean && npm run build:cjs && npm run build:esm && npm run build:types && node scripts/build-package.js"
+  },
+  "keywords": [],
+  "author": "Dharvesh Kumar",
+  "license": "ISC",
+  "description": "Utility Functions",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dharvesh99/d-add.git"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.25.6",
+    "@babel/core": "^7.25.2",
+    "@babel/preset-env": "^7.25.4",
+    "@babel/preset-typescript": "^7.24.7"
+  }
+}
